@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Book Finder App</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_find_book">Find Book</string>
+    <string name="menu_history">History</string>
+    <string name="menu_exit">Exit</string>
+
+    <string name="opening_1">Welcome</string>
+    <string name="opening_2">to</string>
+    <string name="opening_3">Book Finder App</string>
+
+    <string name="take_picture">Take picture</string>
+
+    <string name="version">Version 0.0.1</string>
+</resources>
