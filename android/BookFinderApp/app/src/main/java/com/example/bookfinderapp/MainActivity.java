@@ -1,13 +1,15 @@
 package com.example.bookfinderapp;
 
 import android.os.Bundle;
-import android.view.View;
 import android.view.Menu;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import com.example.bookfinderapp.module.history.HistoryFragment;
+import com.example.bookfinderapp.module.home.HomeFragment;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -16,9 +18,13 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements FragmentListener{
 
     private AppBarConfiguration mAppBarConfiguration;
+    private FragmentManager fm;
+    private HomeFragment homeFragment;
+    private HistoryFragment historyFragment;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +62,12 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+        this.homeFragment = HomeFragment.newInstance("Home");
+        this.historyFragment = HistoryFragment.newInstance("History");
+
+        this.fm = getSupportFragmentManager();
+
     }
 
     @Override
@@ -71,4 +83,17 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+    public void setFragment(int page){
+        FragmentTransaction transaction = fm.beginTransaction();
+        if(page == 0){
+            Fragment fragment = new HomeFragment();
+            transaction.replace(R.id.nav_host_fragment, fragment);
+        }else if(page==1){
+            Fragment fragment = new HistoryFragment();
+            transaction.replace(R.id.nav_host_fragment, fragment);
+        }
+        transaction.commit();
+    }
+
 }

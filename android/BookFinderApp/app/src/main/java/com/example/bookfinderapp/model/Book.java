@@ -13,7 +13,7 @@ public class Book {
     private int weight;
     private int page;
 
-    Book(
+    public Book(
             int id,
             String title,
             int picture,

@@ -1,4 +1,4 @@
-package com.example.bookfinderapp.module.LocalDatabase;
+package com.example.bookfinderapp.utils.localdatabase;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -11,6 +11,9 @@ import com.example.bookfinderapp.model.Book;
 import java.util.LinkedList;
 import java.util.List;
 
+//public class SQLiteHandler{
+//
+//}
 public class SQLiteHandler extends SQLiteOpenHelper {
 
     public static final int DATABASE_VERSION = 1;
@@ -63,8 +66,17 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
 
-        values.put(KEY_NAME, pengajar.getNama());
-        values.put(KEY_STUDY, pengajar.getPelajaran());
+        values.put(KEY_ID, book.getId()); //0
+        values.put(KEY_NAME, book.getTitle()); //1
+        values.put(KEY_PIC, book.getPicture()); //2
+        values.put(KEY_AUTHOR, book.getAuthor()); //3
+        values.put(KEY_DESC, book.getDescription()); //4
+        values.put(KEY_TRBT, book.getTerbitan()); //5
+        values.put(KEY_ISBN, book.getIsbn()); //6
+        values.put(KEY_LANG, book.getLanguage());
+        values.put(KEY_PNBT, book.getPenerbit());
+        values.put(KEY_WEIGHT, book.getWeight());
+        values.put(KEY_PAGE, book.getPage());
 
         db.insert(TABLE_CONTACTS, null, values);
 
@@ -76,7 +88,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor cursor = db.query(TABLE_CONTACTS, new String[] { KEY_ID, KEY_NAME,KEY_STUDY}, KEY_ID + "=?",
+        Cursor cursor = db.query(TABLE_CONTACTS,
+                new String[] { KEY_ID, KEY_NAME,KEY_PIC,KEY_AUTHOR,KEY_DESC,KEY_TRBT,KEY_ISBN,KEY_LANG,KEY_PNBT,KEY_WEIGHT,KEY_PAGE}
+                , KEY_ID + "=?",
 
                 new String[] { String.valueOf(id) }, null, null, null, null);
 
@@ -84,14 +98,17 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
             cursor.moveToFirst();
 
-        Pengajar pengajar = new Pengajar(cursor.getString(1),cursor.getString(2));
-        return pengajar;
+        Book book = new Book(cursor.getInt(0),cursor.getString(1),cursor.getInt(2)
+                ,cursor.getString(3),cursor.getString(4),cursor.getString(5)
+                ,cursor.getInt(6),cursor.getString(7),cursor.getString(8)
+                ,cursor.getInt(9),cursor.getInt(10));
+        return book;
 
     }
 
     public List<Book> getAllBook() {
 
-        List<Book> imageList = new LinkedList<Book>();
+        List<Book> bookList = new LinkedList<Book>();
 
         String selectQuery = "SELECT * FROM "+TABLE_CONTACTS;
 
@@ -103,45 +120,47 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
             do {
 
-                Pengajar pengajar = new Pengajar(cursor.getString(1)
-                        ,cursor.getString(2));
+                Book book = new Book(cursor.getInt(0),cursor.getString(1),cursor.getInt(2)
+                        ,cursor.getString(3),cursor.getString(4),cursor.getString(5)
+                        ,cursor.getInt(6),cursor.getString(7),cursor.getString(8)
+                        ,cursor.getInt(9),cursor.getInt(10));
 
-                imageList.add(pengajar);
-
-            } while (cursor.moveToNext());
-
-        }
-
-        db.close();
-        return imageList;
-    }
-
-    public List<Book> getAllBook(String title) {
-
-        List<Book> imageList = new LinkedList<Book>();
-
-        String selectQuery = "SELECT * FROM "+TABLE_CONTACTS+" WHERE "+KEY_STUDY+" = '" + pelajaran +"'";
-
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        Cursor cursor = db.rawQuery(selectQuery, null);
-
-        if (cursor.moveToFirst()) {
-
-            do {
-
-                Pengajar pengajar = new Pengajar(cursor.getString(1)
-                        ,cursor.getString(2));
-
-                imageList.add(pengajar);
+                bookList.add(book);
 
             } while (cursor.moveToNext());
 
         }
 
         db.close();
-        return imageList;
+        return bookList;
     }
+
+//    public List<Book> getAllBook(String title) {
+//
+//        List<Book> imageList = new LinkedList<Book>();
+//
+//        String selectQuery = "SELECT * FROM "+TABLE_CONTACTS+" WHERE "+KEY_STUDY+" = '" + pelajaran +"'";
+//
+//        SQLiteDatabase db = this.getWritableDatabase();
+//
+//        Cursor cursor = db.rawQuery(selectQuery, null);
+//
+//        if (cursor.moveToFirst()) {
+//
+//            do {
+//
+//                Pengajar pengajar = new Pengajar(cursor.getString(1)
+//                        ,cursor.getString(2));
+//
+//                imageList.add(pengajar);
+//
+//            } while (cursor.moveToNext());
+//
+//        }
+//
+//        db.close();
+//        return imageList;
+//    }
   /*  public int updateImageData(Pengajar pengajar,String judulLama) {
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -158,7 +177,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getWritableDatabase();
 
-        db.delete(TABLE_CONTACTS, KEY_NAME + " = ?",
+        db.delete(TABLE_CONTACTS, KEY_ID + " = ?",
                 new String[] { nama });
         db.close();
 

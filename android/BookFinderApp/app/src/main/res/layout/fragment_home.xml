@@ -6,12 +6,12 @@
     android:layout_height="match_parent"
     android:background="@drawable/background3"
     android:backgroundTintMode="add"
-    tools:context=".ui.home.HomeFragment">
+    tools:context=".module.home.HomeFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center||top"
+        android:layout_gravity="center|top"
         android:layout_marginTop="100dp"
         android:orientation="vertical">
 
@@ -41,22 +41,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:gravity="center">
 
         <Button
             android:id="@+id/btn_find_book"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:minWidth="130dp"
-            android:layout_marginLeft="60dp"
+            android:background="@color/btn_color"
+            android:layout_marginRight="10dp"
             android:text="Find Book"/>
 
         <Button
             android:id="@+id/btn_history"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@color/btn_color"
             android:minWidth="130dp"
-            android:layout_marginLeft="50dp"
             android:text="History"/>
 
     </LinearLayout>
@@ -64,6 +67,6 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center||bottom"
+        android:layout_gravity="bottom|center"
         android:text="@string/version"/>
 </FrameLayout>

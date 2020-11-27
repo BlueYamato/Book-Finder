@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/background3">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+
+            <ImageView
+                android:id="@+id/iv_book"
+                android:layout_width="200dp"
+                android:layout_height="350dp"
+                android:src="@drawable/test1"
+                android:layout_marginRight="10dp"/>
+
+            <LinearLayout
+                android:id="@+id/first_form"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Title"
+                    android:textAllCaps="true"
+                    android:fontFamily="@string/font_family_black"
+                    android:textSize="20sp"/>
+
+                <com.example.bookfinderapp.utils.autoresizetextview.AutoResizeTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kaga The Hunger"
+                    android:ellipsize="none"
+                    android:maxLines="2"
+                    android:fontFamily="@string/font_family_medium"
+                    android:textSize="18sp"
+                    android:layout_marginHorizontal="10dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Author"
+                    android:textAllCaps="true"
+                    android:fontFamily="@string/font_family_black"
+                    android:textSize="20sp"/>
+
+                <com.example.bookfinderapp.utils.autoresizetextview.AutoResizeTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kaga"
+                    android:ellipsize="none"
+                    android:maxLines="2"
+                    android:fontFamily="@string/font_family_medium"
+                    android:textSize="18sp"
+                    android:layout_marginHorizontal="10dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Date"
+                    android:textAllCaps="true"
+                    android:fontFamily="@string/font_family_black"
+                    android:textSize="20sp"/>
+
+                <com.example.bookfinderapp.utils.autoresizetextview.AutoResizeTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="25 Augustus 2020"
+                    android:ellipsize="none"
+                    android:maxLines="2"
+                    android:fontFamily="@string/font_family_medium"
+                    android:textSize="18sp"
+                    android:layout_marginHorizontal="10dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ISBN"
+                    android:textAllCaps="true"
+                    android:fontFamily="@string/font_family_black"
+                    android:textSize="20sp"/>
+
+                <com.example.bookfinderapp.utils.autoresizetextview.AutoResizeTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="9786024526986"
+                    android:ellipsize="none"
+                    android:maxLines="2"
+                    android:fontFamily="@string/font_family_medium"
+                    android:textSize="18sp"
+                    android:layout_marginHorizontal="10dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Language"
+                    android:textAllCaps="true"
+                    android:fontFamily="@string/font_family_black"
+                    android:textSize="20sp"/>
+
+                <com.example.bookfinderapp.utils.autoresizetextview.AutoResizeTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="English"
+                    android:ellipsize="none"
+                    android:maxLines="2"
+                    android:fontFamily="@string/font_family_medium"
+                    android:textSize="18sp"
+                    android:layout_marginHorizontal="10dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Publisher"
+                    android:textAllCaps="true"
+                    android:fontFamily="@string/font_family_black"
+                    android:textSize="20sp"/>
+
+                <com.example.bookfinderapp.utils.autoresizetextview.AutoResizeTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Azur Company"
+                    android:ellipsize="none"
+                    android:maxLines="2"
+                    android:fontFamily="@string/font_family_medium"
+                    android:textSize="18sp"
+                    android:layout_marginHorizontal="10dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Page"
+                    android:textAllCaps="true"
+                    android:fontFamily="@string/font_family_black"
+                    android:textSize="20sp"/>
+
+                <com.example.bookfinderapp.utils.autoresizetextview.AutoResizeTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="200"
+                    android:ellipsize="none"
+                    android:maxLines="2"
+                    android:fontFamily="@string/font_family_medium"
+                    android:textSize="18sp"
+                    android:layout_marginHorizontal="10dp"/>
+
+            </LinearLayout>
+        </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description"
+            android:textAllCaps="true"
+            android:fontFamily="@string/font_family_black"
+            android:textSize="20sp"
+            android:layout_marginLeft="5dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Selama beberapa tahun belakangan, Mark Manson—melalui blognya yang sangat populer—telah membantu mengoreksi harapan-harapan delusional kita, baik mengenai diri kita sendiri maupun dunia. Ia kini menuangkan buah pikirnya yang keren itu di dalam buku hebat ini.
+Dalam hidup ini, kita hanya punya kepedulian dalam jumlah yang terbatas. Makanya, Anda harus bijaksana dalam menentukan kepedulian Anda.” Manson menciptakan momen perbincangan yang serius dan mendalam, dibungkus dengan cerita-cerita yang menghibur dan “kekinian”, serta humor yang cadas. Buku ini merupakan tamparan di wajah yang menyegarkan untuk kita semua, supaya kita bisa mulai menjalani kehidupan yang lebih memuaskan, dan apa adanya."
+            android:fontFamily="@string/font_family_medium"
+            android:textSize="18sp"
+
+            android:layout_marginHorizontal="10dp"/>
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>
