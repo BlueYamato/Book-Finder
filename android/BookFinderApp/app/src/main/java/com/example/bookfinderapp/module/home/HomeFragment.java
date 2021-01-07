@@ -3,6 +3,7 @@ package com.example.bookfinderapp.module.home;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +28,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
     public static HomeFragment newInstance(String title){
         HomeFragment fragment = new HomeFragment();
-
+        Log.d("testing")
         Bundle args = new Bundle();
         args.putString("title",title);
         fragment.setArguments(args);
