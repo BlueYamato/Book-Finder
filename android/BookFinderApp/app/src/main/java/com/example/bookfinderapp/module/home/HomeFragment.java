@@ -28,7 +28,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
     public static HomeFragment newInstance(String title){
         HomeFragment fragment = new HomeFragment();
-        Log.d("testing")
+
         Bundle args = new Bundle();
         args.putString("title",title);
         fragment.setArguments(args);
