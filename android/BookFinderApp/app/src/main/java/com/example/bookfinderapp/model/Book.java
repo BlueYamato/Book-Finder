@@ -3,29 +3,26 @@ package com.example.bookfinderapp.model;
 public class Book {
     private int id;
     private String title;
-    private int picture;
+    private String picture;
     private String author;
     private String description;
     private String terbitan;
-    private int isbn;
+    private String isbn;
     private String language;
     private String penerbit;
-    private int weight;
     private int page;
 
     public Book(
             int id,
             String title,
-            int picture,
+            String picture,
             String author,
             String description,
             String terbitan,
-            int isbn,
+            String isbn,
             String language,
             String penerbit,
-            int weight,
-            int page)
-    {
+            int page) {
         this.id = id;
         this.title = title;
         this.picture = picture;
@@ -35,7 +32,6 @@ public class Book {
         this.isbn = isbn;
         this.language = language;
         this.penerbit = penerbit;
-        this.weight = weight;
         this.page = page;
     }
 
@@ -55,11 +51,11 @@ public class Book {
         this.title = title;
     }
 
-    public int getPicture() {
+    public String getPicture() {
         return picture;
     }
 
-    public void setPicture(int picture) {
+    public void setPicture(String picture) {
         this.picture = picture;
     }
 
@@ -87,11 +83,11 @@ public class Book {
         this.terbitan = terbitan;
     }
 
-    public int getIsbn() {
+    public String getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(int isbn) {
+    public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
 
@@ -109,14 +105,6 @@ public class Book {
 
     public void setPenerbit(String penerbit) {
         this.penerbit = penerbit;
-    }
-
-    public int getWeight() {
-        return weight;
-    }
-
-    public void setWeight(int weight) {
-        this.weight = weight;
     }
 
     public int getPage() {

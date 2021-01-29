@@ -2,6 +2,7 @@ package com.example.bookfinderapp.module.history;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import com.example.bookfinderapp.FragmentListener;
 import com.example.bookfinderapp.R;
 import com.example.bookfinderapp.model.Book;
 import com.example.bookfinderapp.model.BookList;
+import com.example.bookfinderapp.utils.storage.SQLiteHandler;
 
 import java.util.ArrayList;
 
@@ -27,6 +29,8 @@ public class HistoryFragment extends Fragment implements View.OnClickListener {
     private HistoryRecycleAdapter adapter;
     private ArrayList<BookList> bookLists = new ArrayList<>();
     private RecyclerView recycler;
+
+    private SQLiteHandler sqLiteHandler;
 
     public HistoryFragment(){
 
@@ -61,10 +65,15 @@ public class HistoryFragment extends Fragment implements View.OnClickListener {
         recycler.setLayoutManager(layoutManager);
         adapter = new HistoryRecycleAdapter(bookLists, this.getContext());
         recycler.setAdapter(adapter);
+        sqLiteHandler = new SQLiteHandler(this.getContext());
 
-        bookLists.add(new BookList(1, "a",2323232,"john"));
-        bookLists.add(new BookList(2, "b",2323232,"john"));
-        bookLists.add(new BookList(3, "c",2323232,"john"));
+        bookLists = (ArrayList<BookList>) sqLiteHandler.getAllBooks();
+        Log.d("checkdata"," the size "+bookLists.size());
+//        bookLists.add(new BookList(1, "a",2323232,"john"));
+//        bookLists.add(new BookList(2, "b",2323232,"john"));
+//        bookLists.add(new BookList(3, "c",2323232,"john"));
+
+
 
         adapter.notifyDataSetChanged();
 

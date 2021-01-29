@@ -2,6 +2,7 @@ package com.example.bookfinderapp.module.camera;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.ImageFormat;
 import android.graphics.SurfaceTexture;
@@ -34,6 +35,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import com.example.bookfinderapp.R;
+import com.example.bookfinderapp.module.book.BookDetailActivity;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -45,7 +47,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class AndroidCameraApi extends AppCompatActivity {
+public class AndroidCameraApi extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "AndroidCameraApi";
 
@@ -85,16 +87,7 @@ public class AndroidCameraApi extends AppCompatActivity {
         this.textureView.setSurfaceTextureListener(textureListener);
         this.takePictureButton = findViewById(R.id.btb_takepicture);
         assert takePictureButton!=null;
-        takePictureButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    takePicture();
-                } catch (CameraAccessException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+        takePictureButton.setOnClickListener(this);
     }
 
     TextureView.SurfaceTextureListener textureListener = new TextureView.SurfaceTextureListener() {
@@ -213,6 +206,7 @@ public class AndroidCameraApi extends AppCompatActivity {
                         e.printStackTrace();
                     }
                     finally {
+                        startActivity(new Intent(AndroidCameraApi.this, BookDetailActivity.class));
                         if(image!=null){
                             image.close();
                         }
@@ -224,6 +218,7 @@ public class AndroidCameraApi extends AppCompatActivity {
                     try{
                         output = new FileOutputStream(file);
                         output.write(bytes);
+
                     }finally {
                         if(null!=output){
                             output.close();
@@ -236,8 +231,16 @@ public class AndroidCameraApi extends AppCompatActivity {
                 @Override
                 public void onCaptureCompleted(@NonNull CameraCaptureSession session, @NonNull CaptureRequest request, @NonNull TotalCaptureResult result) {
                     super.onCaptureCompleted(session, request, result);
-                    Toast.makeText(AndroidCameraApi.this, "saved: "+file, Toast.LENGTH_SHORT).show();
-                    createCameraPreview();
+//                    Toast.makeText(AndroidCameraApi.this, "saved: "+file, Toast.LENGTH_SHORT).show();
+
+
+
+//                    UploadAsyncTask uploadAT = new UploadAsyncTask(getApplicationContext());
+//
+//                    uploadAT.execute(data);
+
+
+//                    createCameraPreview();
                 }
             };
             cameraDevice.createCaptureSession(outputSurface, new CameraCaptureSession.StateCallback() {
@@ -361,5 +364,16 @@ public class AndroidCameraApi extends AppCompatActivity {
         Log.e(TAG, "onPause" );
         stopBackgroundThread();
         super.onPause();
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(v.getId() == takePictureButton.getId()){
+            try {
+                takePicture();
+            } catch (CameraAccessException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

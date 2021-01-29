@@ -37,6 +37,7 @@
                     android:textSize="20sp"/>
 
                 <com.example.bookfinderapp.utils.autoresizetextview.AutoResizeTextView
+                    android:id="@+id/tv_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Kaga The Hunger"
@@ -55,6 +56,7 @@
                     android:textSize="20sp"/>
 
                 <com.example.bookfinderapp.utils.autoresizetextview.AutoResizeTextView
+                    android:id="@+id/tv_author"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Kaga"
@@ -73,6 +75,7 @@
                     android:textSize="20sp"/>
 
                 <com.example.bookfinderapp.utils.autoresizetextview.AutoResizeTextView
+                    android:id="@+id/tv_date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="25 Augustus 2020"
@@ -90,6 +93,7 @@
                     android:textSize="20sp"/>
 
                 <com.example.bookfinderapp.utils.autoresizetextview.AutoResizeTextView
+                    android:id="@+id/tv_isbn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="9786024526986"
@@ -108,6 +112,7 @@
                     android:textSize="20sp"/>
 
                 <com.example.bookfinderapp.utils.autoresizetextview.AutoResizeTextView
+                    android:id="@+id/tv_language"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="English"
@@ -126,6 +131,7 @@
                     android:textSize="20sp"/>
 
                 <com.example.bookfinderapp.utils.autoresizetextview.AutoResizeTextView
+                    android:id="@+id/tv_publisher"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Azur Company"
@@ -144,6 +150,7 @@
                     android:textSize="20sp"/>
 
                 <com.example.bookfinderapp.utils.autoresizetextview.AutoResizeTextView
+                    android:id="@+id/tv_page"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="200"
@@ -165,6 +172,7 @@
             android:layout_marginLeft="5dp"/>
 
         <TextView
+            android:id="@+id/tv_desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Selama beberapa tahun belakangan, Mark Manson—melalui blognya yang sangat populer—telah membantu mengoreksi harapan-harapan delusional kita, baik mengenai diri kita sendiri maupun dunia. Ia kini menuangkan buah pikirnya yang keren itu di dalam buku hebat ini.

@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment;
 import com.example.bookfinderapp.FragmentListener;
 import com.example.bookfinderapp.R;
 import com.example.bookfinderapp.module.book.BookDetailActivity;
+import com.example.bookfinderapp.module.camera.AndroidCamera;
 import com.example.bookfinderapp.module.camera.AndroidCameraApi;
 
 public class HomeFragment extends Fragment implements View.OnClickListener {
@@ -64,9 +65,9 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             Intent cameraIntent = new Intent(getActivity(), AndroidCameraApi.class);
             startActivity(cameraIntent);
         }else{
-//            this.listener.setFragment(1);
-            Intent bookIntent = new Intent(getActivity(), BookDetailActivity.class);
-            startActivity(bookIntent);
+            this.listener.setFragment(1);
+//            Intent bookIntent = new Intent(getActivity(), BookDetailActivity.class);
+//            startActivity(bookIntent);
         }
 
     }

@@ -1,8 +1,11 @@
 package com.example.bookfinderapp.module.history;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Picture;
 import android.media.Image;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,9 +36,9 @@ public class HistoryRecycleAdapter extends RecyclerView.Adapter<HistoryRecycleAd
     @Override
     public BookHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-
         // Inflate the layout view you have created for the list rows here
         View view = layoutInflater.inflate(R.layout.rv_history_layout, parent, false);
+
         return new BookHolder(view);
     }
 
@@ -48,8 +51,10 @@ public class HistoryRecycleAdapter extends RecyclerView.Adapter<HistoryRecycleAd
     public void onBindViewHolder(@NonNull BookHolder holder, final int position) {
         final BookList books = bookLists.get(position);
 
-//        holder.setContactName(contact.getName());
-//        holder.setContactNumber(contact.getNumber());
+
+        holder.setTitle(books.getTitle());
+        holder.setAuthor(books.getAuthor());
+        holder.setPicture(books.getPicture());
 
 
     }
@@ -59,7 +64,6 @@ public class HistoryRecycleAdapter extends RecyclerView.Adapter<HistoryRecycleAd
         private ImageView picture;
         private TextView tvTitle;
         private TextView tvAuthor;
-        private ImageButton ibDelete;
 
         public BookHolder(View itemView) {
             super(itemView);
@@ -67,7 +71,7 @@ public class HistoryRecycleAdapter extends RecyclerView.Adapter<HistoryRecycleAd
             picture = itemView.findViewById(R.id.iv_booklist);
             tvTitle = itemView.findViewById(R.id.atv_history_title);
             tvAuthor = itemView.findViewById(R.id.atv_history_author);
-            ibDelete = itemView.findViewById(R.id.btn_delete);
+//            ibDelete = itemView.findViewById(R.id.btn_delete);
         }
 
         public void setTitle(String title) {
@@ -76,6 +80,12 @@ public class HistoryRecycleAdapter extends RecyclerView.Adapter<HistoryRecycleAd
 
         public void setAuthor(String author) {
             tvAuthor.setText(author);
+        }
+
+        public void setPicture(String picture) {
+            byte[] decodedString = Base64.decode(picture, Base64.DEFAULT);
+            Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+            this.picture.setImageBitmap(decodedByte);
         }
 
 //        public void setPicture(String uri) {

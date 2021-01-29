@@ -4,10 +4,10 @@ public class BookList {
 
     private int id;
     private String title;
-    private int picture;
+    private String picture;
     private String author;
 
-    public BookList(int id, String title,int picture,String author){
+    public BookList(int id, String title,String picture,String author){
         this.id = id;
         this.title = title;
         this.picture = picture;
@@ -30,11 +30,11 @@ public class BookList {
         this.title = title;
     }
 
-    public int getPicture() {
+    public String getPicture() {
         return picture;
     }
 
-    public void setPicture(int picture) {
+    public void setPicture(String picture) {
         this.picture = picture;
     }
 
